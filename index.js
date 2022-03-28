@@ -3,13 +3,19 @@ const { query } = require('express');
 const express = require('express');
 var path = require('path');
 const port = 8000;
+const expressLayouts = require('express-ejs-layouts');
+
 const db = require('./config/mongoose');
 const Task = require('./models/Task');
 app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts);
+app.use('/',require('./routes'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
+app.use('/',require('./routes/index'));
+
 
 var task = [
     {
@@ -33,15 +39,6 @@ var task = [
         due_date: "1/4/22"
     },
 ]
-
-
-
-
-app.get('/', (req, res) => {
-    res.render('Home', {
-        title: 'To-Do App'
-    });
-})
 
 app.get('/task', (req, res) => {
 
