@@ -15,49 +15,6 @@ app.use('/',require('./routes'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 app.use('/',require('./routes/index'));
-
-
-var task = [
-    {
-        id: 1,
-        description: "minor project",
-        category: "work",
-        due_date: "15/4/22"
-    },
-    {
-
-        id: 2,
-        description: "gym fee",
-        category: "personal",
-        due_date: "15/5/22"
-    },
-    {
-
-        id: 3,
-        description: "house cleaning",
-        category: "cleaning",
-        due_date: "1/4/22"
-    },
-]
-
-app.get('/task', (req, res) => {
-
-Task.find({},function(err,Task){
-    if(err){
-        console.log('error in fetching contacts');
-
-        return;
-
-    }
-    res.render('tasks', {
-        title: 'task',
-        toDoTask: Task
-    });
-   
-});
-
-  
-});
 app.get('/delete-task/', (req, res) => {
     //console.log(req.params);
     //let id = req.params.id;
