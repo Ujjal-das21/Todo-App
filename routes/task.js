@@ -12,5 +12,8 @@ router.get('/create',createController.create);
 
 router.get('/delete',deleteController.delete);
 
+router.get('/sign-up',taskContoller.signUp);
+router.get('/sign-in',taskContoller.signIn);
+
 
 module.exports = router;

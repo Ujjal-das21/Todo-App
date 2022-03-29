@@ -1,13 +1,20 @@
 const exp = require('constants');
 const { query } = require('express');
 const express = require('express');
-var path = require('path');
 const port = 8000;
+app = express();
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+var path = require('path');
+
 const expressLayouts = require('express-ejs-layouts');
 
 const db = require('./config/mongoose');
+
 const Task = require('./models/Task');
-app = express();
+const User = require('./models/User');
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
@@ -60,7 +67,37 @@ app.post('/create-task', function(req, res){
         // console.log('******', newTask);
         return res.redirect('back');
     })
-})
+});
+app.post('/create',function(req,res){
+    if(req.body.password != req.body.confirm_password){
+        return response.redirect('back');
+    }
+
+    User.findOne({email: req.body.email},function(err,user){
+        if(err){
+            console.log('error in finding user in signing up'); return;
+        }
+
+        if(!user){
+            User.create(req.body,function(err,user){
+                if(err){
+                    console.log('error in creating user in signing up'); return;
+                } 
+                return res.redirect('/task/sign-in');
+
+            })
+        }
+        else{
+            return response.redirect('back');
+        }
+
+
+    });
+
+});
+app.get('/create-session',function(req,res){
+
+});
 app.listen(port, function (err) {
     if (err) {
         console.log('error in running server');
