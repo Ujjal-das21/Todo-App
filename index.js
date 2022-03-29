@@ -14,12 +14,15 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const MongoStore = require('connect-mongo')(session);
 
 const Task = require('./models/Task');
 const User = require('./models/User');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+//mongoStore is used to store the session cookie in the DB
 app.use(session({
     name: 'todo',
     secret:'ujjaldas',
@@ -27,27 +30,30 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge: (1000*60*100)
+    },
+    store:new MongoStore({
+       
+            mongooseConnection: db,
+            autoRemove:'disabled'
+        
+    },
+    function(err){
+        console.log(err|| 'connect-mongodb setup ok');
     }
+    )
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 app.use(expressLayouts);
 app.use('/',require('./routes'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 app.use('/',require('./routes/index'));
 app.get('/delete-task/', (req, res) => {
-    //console.log(req.params);
-    //let id = req.params.id;
+   
     console.log(req.query);
     let id = req.query.id;
-    // let taskIndex = task.find(task => task.id == id);
-    // console.log(taskIndex);
-    // if (taskIndex != -1) {
-    //     task.splice(taskIndex, 1);
-    // }
-    
-
     Task.findOneAndDelete(id,function(err){
         if(err){
             console.log('error in deleting an object from database',id);
@@ -59,14 +65,7 @@ app.get('/delete-task/', (req, res) => {
 
 });
 app.post('/create-task', function(req, res){
-    // console.log(req.id);
     console.log(req.body);
-    // console.log(req.body.description);
-    // console.log(req.body.due_date);
-    // description:req.body.description,
-    // category:req.body.category,
-    // due_date:req.body.due_date
-    // task.push(req.body);
 
     Task.create({
          id: req.body.id,
