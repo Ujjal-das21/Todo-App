@@ -1,26 +1,25 @@
 <header>
-    <h3>This is the header</h3>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/43066af316.js" crossorigin="anonymous"></script>
+    <section>
+    <a href="https://github.com/Ujjal-das21/Todo-App" id="logo" target="_blank">Taskerr</a>
+    
+    <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+    <input type="checkbox" id="toggle-1">
+    
+    <nav>
     <ul>
-        <% if(locals.user) { %>
-            <li><%=user.name %> </li>
-           <li>
-
-            <a href="/task/sign-out">Sign Out</a>
-           </li>
-
-        <% } else { %>
-            <li>
-                <a href="/task/sign-in">Sign In</a>
-            </li>
-            <li>
-                <a href="/task/sign-up">Sign Up</a>
-            </li>
-            <li>
-                <p>
-                    <a href="/task/auth/google">Google Sign In/Up</a>
-                </p>
-            </li>
-
-            <% } %>
+    <li><a href="#home"><i class="fa fa-fw fa-home"></i>Home</a></li>
+    <li><a href="#about"><i class="fa-solid fa-address-card"></i>About</a></li>
+    <% if(locals.user) { %>
+    <li><a href="#portfolio"><i class="icon-thumbs-up-alt"></i><%=user.name %></a></li>
+    <li><a href="/task/sign-out"><i class="icon-gear"></i>Sign Out</a></li>
+    <% } else { %>
+    <li><a href="/task/sign-in"><i class="fa fa-fw fa-user"></i>Sign In</a></li>
+    <li><a href="/task/sign-up"><i class="fa-solid fa-user-plus"></i>Sign Up</a></li>
+    <li><a href="/task/auth/google"><i class="fa-brands fa-google"></i>Google Sign In/Up</a></li>
+    <% } %>
     </ul>
+    </nav>
 </header>

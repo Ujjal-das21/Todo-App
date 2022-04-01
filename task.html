@@ -8,7 +8,10 @@
 </head>
 
 <body>
+    <!-- <%- include('header'); %> -->
+    <header class="header_class">
         <h1>This is the Task page</h1>
+    </header>
     <article class="todo_list">
         <div class="tasks">
             <ul class="task_list">
@@ -50,12 +53,11 @@
         <form action="/create-task" method="post">
             <label for="id">Task Number:</label>
             <input type="id" id="id" name="id" value="<%= count%>">
-            <label for="category">Category:</label>
             <label for="Task description">Description:</label>
             <textarea name="description" rows="2" cols="40" placeholder="What do you need to do?" required></textarea>
             <br>
 
-          
+            <label for="category">Category:</label>
             <input list="category" name="category" required>
             <datalist id="category">
                 <option value="work">
@@ -67,6 +69,9 @@
             <label for="due_date">Due_date:</label>
             <input type="date" id="due_date" name="due_date" required>
             <button type="submit">Add Task</button>
+
+
+
         </form>
 
     </div>

@@ -1,12 +1,28 @@
-<h1>Sign In</h1>
-
-<form action="/create-session" method="post">
-
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign In">
-
-
-
-
-</form>
+<link rel="stylesheet" href="/css/signin.css">
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form action="/create-session" method="post" class="login">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="email" name="email" placeholder="Email" required class="login__input" >
+				</div>
+                
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input class="login__input" name="password" placeholder="Password" required>
+				</div>
+				<button type="submit" class="button login__submit" value="Sign In">
+					<span class="button__text">Sign In</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>

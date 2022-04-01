@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./assets/css/task.css"> -->
+</head>
+
+<body>
+    
+    
+    <section>
+        <div>
+            <form action="/create-task" method="post">
+                <label for="id">Task Number:</label>
+                <input type="id" id="id" name="id" value="<%= count%>">
+                <label for="Task description">Description:</label>
+                <textarea name="description" rows="2" cols="40" placeholder="What do you need to do?" required></textarea>
+                <br>
+    
+                <label for="category">Category:</label>
+                <input list="category" name="category" required>
+                <datalist id="category">
+                    <option value="work">
+                    <option value="personal">
+                    <option value="cleaning">
+                    <option value="others">
+                </datalist>
+                <br>
+                <label for="due_date">Due_date:</label>
+                <input type="date" id="due_date" name="due_date" required>
+                <button type="submit">Add Task</button>
+            </form>
+    
+        </div>
+       </section>
+</body>
+
+</html>
