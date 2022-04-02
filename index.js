@@ -1,6 +1,8 @@
 const exp = require('constants');
 const { query } = require('express');
 const express = require('express');
+const env = require('./config/environment')
+const logger = require('morgan')
 const port = 8000;
 app = express();
 const cookieParser = require('cookie-parser');
@@ -20,6 +22,7 @@ const MongoStore = require('connect-mongo')(session);
 
 const Task = require('./models/Task');
 const User = require('./models/User');
+const environment = require('./config/environment');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -27,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 //mongoStore is used to store the session cookie in the DB
 app.use(session({
     name: 'todo',
-    secret:'ujjaldas',
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
@@ -44,13 +47,14 @@ app.use(session({
     }
     )
 }));
+app.use(logger(env.morgan.mode,env.morgan.options))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 app.use(expressLayouts);
 app.use('/',require('./routes'));
 app.use(express.urlencoded());
-app.use(express.static('assets'));
+app.use(express.static(env.asset_path));
 app.use('/',require('./routes/index'));
 app.get('/delete-task/', (req, res) => {
    

@@ -3,15 +3,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/43066af316.js" crossorigin="anonymous"></script>
     <section>
-    <a href="https://github.com/Ujjal-das21/Todo-App" id="logo" target="_blank">Taskerr</a>
+    <a  href="https://github.com/Ujjal-das21/Todo-App" id="logo" target="_blank">TickItOff</a>
     
     <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
     <input type="checkbox" id="toggle-1">
     
     <nav>
     <ul>
-    <li><a href="#home"><i class="fa fa-fw fa-home"></i>Home</a></li>
-    <li><a href="#about"><i class="fa-solid fa-address-card"></i>About</a></li>
+    <li><a href="/"><i class="fa fa-fw fa-home"></i>Home</a></li>
+    <li><a href="/task/list"><i class="fa-solid fa-address-card"></i>My Tasks</a></li>
     <% if(locals.user) { %>
     <li><a href="#portfolio"><i class="icon-thumbs-up-alt"></i><%=user.name %></a></li>
     <li><a href="/task/sign-out"><i class="icon-gear"></i>Sign Out</a></li>

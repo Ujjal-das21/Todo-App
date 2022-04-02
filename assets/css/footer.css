@@ -10,8 +10,8 @@ body{
     box-sizing: border-box;
   
 }
-.container{
-    position: relative;
+.footer_container{
+    position: fixed;
     left: 0;
     bottom:0; 
     width: 100%;
@@ -27,7 +27,7 @@ body{
     flex-wrap: wrap;
 
 }
-ul{
+.footer_container ul{
     list-style: none;
 }
 .footer{

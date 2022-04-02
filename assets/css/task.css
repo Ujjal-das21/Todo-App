@@ -1,101 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500&display=swap');
 body{
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
-   
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  
-}
-.container{
-    position: static;
-    left: 0;
-    bottom:0; 
-    width: 100%;
-    max-width: auto;
-    background-color: rgb(15, 3, 3);
-    /* margin: auto; */
-    margin-top: 4rem;
+  color:  #002e5b;;
 }
 .row {
+    display: -ms-flexbox; /* IE10 */
     display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
-
-}
-ul{
-    list-style: none;
-}
-.footer{
-    background-color: #24262b;
-    padding: 70px 0px;
-
-}
-.footer-col{
-    width: 25%;
-    padding: 0 15px;
-}
-.footer-col h4{
-    font-size:18px ;
-    color:#ffffff ;
-    text-transform: capitalize;
+    margin: 0 -16px;
+  }
+  .form_container{
+      width: 40%;
+      
+  }
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    /* border: 1px solid lightgrey; */
+   margin-bottom: 200px;
+    border-radius: 3px;
+  }
+  /* task items form here */
+  article{
+    margin-bottom: 100px;
+    
+  }
+  /* .task_div{
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+  } */
+  
+  .container h3{
+      text-align: center;
+  }
+  
+  input[type=text] {
+    width:30%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .form_container label {
     margin-bottom: 10px;
-    font-weight: 500;
-   
-}
-/* .footer-col h4::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    background-color: #e91e63;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
-}
-.footer-col ul li :not(:last-child){
-    margin-bottom: 10px;
-
-} */
-.footer-col ul li a{
-    font-size: 16px;
-    text-transform: capitalize;
-    color:#ffffff;
-    text-decoration: none;
-    font-weight: 300;
-    color: #bbbbbb;
     display: block;
-    transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-    color: #ffffff;
-    padding-left: 8px;
-}
-.footer-col .social-links a{
+  }
+  
+  .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+  
+  .btn {
+    background-color:#fde428;
+    color: #002e5b;
+    padding: 12px;
+    margin: 10px 0;
+    margin-right: 10px;
+    border: none;
+    width:150px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+    text-align: right;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .form_container span.price {
+    float: right;
+    color: grey;
+  }
+  .task_container{
+    font-family: 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 50%;
+    /* border: 2px solid red; */
+    margin: auto;
+  }
+  .task_div {
+    /* border: 2px solid seagreen; */
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 1px;
+    width: auto;
+  }
+  .task_details{
+    /* border: 2px solid blue; */
     display: inline-block;
-    height: 40px;
-    width: 40px;
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    transition: all 0.5s ease;
-
+    width: 400px;
+    margin: 5px;
+    padding: 1px;
+  }
+  .delete-button{
+    /* border: 2px solid orange; */
+    display: inline-block;
+    margin: 5px;
+    padding: 2px;
+  }
+  .task_details p{
+    display: inline-block;
+    justify-content: space-around;
+    margin-left: 30px;
 }
-.footer-col .social-links a:hover{
-    color: #24262b;
-    background-color: #ffffff;
+a{
+  text-decoration: none;
 }
-@media(max-width:767px){
-    .footer-col{
-        width: 50%;
-        margin-bottom: 30px;
+a:visited{
+  color: #002e5b;
+}
+article h1{
+  text-align: center;
+  margin-bottom: -10px;
+}
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+  /* @media (max-width: 800px) {
+    .row {
+      flex-direction: column-reverse;
     }
-}
-@media(max-width:574px){
-    .footer-col{
-        width: 100%;
-       
+    .col-25 {
+      margin-bottom: 20px;
     }
-}
+  } */

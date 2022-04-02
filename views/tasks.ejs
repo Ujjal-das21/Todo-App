@@ -4,40 +4,46 @@
     <title>
         <%=title %>
     </title>
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/task.css">
+    <script src="https://kit.fontawesome.com/43066af316.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-        <h1>This is the Task page</h1>
+    <!-- <%- include('header'); %> -->
     <article class="todo_list">
-        <div class="tasks">
+        <h1>TODO TASKS</h1>
+        <div class="task_container">
             <ul class="task_list">
                 <% let count=1 %>
                 <% for (let i of toDoTask) { %>
                     
+                    <div class="task_div">
+                        <li>
                    
-                        <div class="task_details" id="<%= count%>">
-                            <p><%= i.id=count %></p>
-                            <p>
-                                <%= i.description %>
-                            </p>
-                            <p>
-                                <%= i.category %>
-                            </p>
-                            <p>
-                                <%= i.due_date %>
-                            </p>
-                        </div>
-                        <% count++%>
-                        <div class="delete-button">
-                            <a href="/delete-task/?id=<%= i.id %>">
-                               X
-                            </a>
-    
-                        </div>
-    
-    
-                    </li>
+                            <div class="task_details" id="<%= count%>">
+                                <p><%= i.id=count %></p>
+                                <p>
+                                    <%= i.description %>
+                                </p>
+                                <p>
+                                    <%= i.category %>
+                                </p>
+                                <p>
+                                    <%= i.due_date %>
+                                </p>
+                            </div>
+                            <% count++%>
+                            <div class="delete-button">
+                                <a href="/delete-task/?id=<%= i.id %>">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+        
+                            </div>
+        
+        <hr>
+                        </li>
+                    </div>
+                   
     
                     <% } %>
     
@@ -45,34 +51,40 @@
             </ul>
         </div>
     </article>
-   <section>
-    <div>
-        <form action="/create-task" method="post">
-            <label for="id">Task Number:</label>
-            <input type="id" id="id" name="id" value="<%= count%>">
-            <label for="category">Category:</label>
-            <label for="Task description">Description:</label>
-            <textarea name="description" rows="2" cols="40" placeholder="What do you need to do?" required></textarea>
-            <br>
-
-          
-            <input list="category" name="category" required>
-            <datalist id="category">
-                <option value="work">
-                <option value="personal">
-                <option value="cleaning">
-                <option value="others">
-            </datalist>
-            <br>
-            <label for="due_date">Due_date:</label>
-            <input type="date" id="due_date" name="due_date" required>
-            <button type="submit">Add Task</button>
-        </form>
-
-    </div>
+   <section class="form_container">
+    <div class="row">
+        <div class="col-75">
+          <div class="container">
+            <form action="/create-task" method="post">
+      
+              <div class="row">
+                <div class="col-50">
+                  <h3>New Task Details</h3>
+                  <label for="id"><i class="fa-solid fa-list-ol"></i> Task Number</label>
+                  <input type="id" id="id" name="id" value="<%= count%>">
+                  <label for="category"><i class="fa-solid fa-briefcase"></i> Category</label>
+                  <input list="category" name="category" required>
+                <datalist id="category">
+                    <option value="work">
+                    <option value="personal">
+                    <option value="cleaning">
+                    <option value="others">
+                </datalist>
+                
+                <label for="Task description"><i class="fa fa-address-card-o"></i> Task Description</label>
+                  <input type="text" id="adr" name="description" placeholder="What do you need to do?" required>
+                  <label for="due_date"><i class="fa-solid fa-calendar"></i> Due Date</label>
+                  <input type="date" id="due_date" name="due_date" required>
+                </div>
+              </div>
+              <input type="submit" value="Add Task" class="btn">
+            </form>
+          </div>
+        </div>
+      </div>
    </section>
    <!-- <%- include('footer'); %> -->
-   
+  
 
     <script type="text/javascript" src="/js/home.js"></script>
 </body>

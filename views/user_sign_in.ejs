@@ -1,28 +1,23 @@
 <link rel="stylesheet" href="/css/signin.css">
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form action="/create-session" method="post" class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="email" name="email" placeholder="Email" required class="login__input" >
-				</div>
-                
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input class="login__input" name="password" placeholder="Password" required>
-				</div>
-				<button type="submit" class="button login__submit" value="Sign In">
-					<span class="button__text">Sign In</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
+  <form action="/create-session" method="post" style="border:1px solid #ccc">
+	<div class="signupcontainer">
+	  <h1>Sign In</h1>
+	  <p>Please Sign In</p>
+	  <hr>
+  
+	  <label for="email"><b>Email</b></label>
+	  <input type="email" placeholder="Enter Email" name="email" required>
+	  <br>
+  
+	  <label for="password"><b>Password</b></label>
+	  <input type="password" placeholder="Enter Password" name="password" required>
+  
+	  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+  
+	  <div class="clearfix">
+		<button type="button" class="cancelbtn">Cancel</button>
+		<button type="submit" value="Sign Up" class="signupbtn">Sign In</button>
+	  </div>
 	</div>
-</div>
+  </form>
+  
